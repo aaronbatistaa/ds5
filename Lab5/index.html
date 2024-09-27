@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: grey;
+      color: black;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+  <form>
+    <input id="valorIngresado" type="text" value="" />
+    <span id="impresion"></span>
+  </form>
+  </main>
+  <script>
+    const Utils = (() => {
+      const reverseString = (str) => {
+        return str.split('').reverse().join('');
+      };
+      return {
+        reverseString,
+      };
+    })();
+  
+    const App = (({ reverseString }) => {
+      const htmlElements = {
+        input: document.getElementById('valorIngresado'),
+        impresion: document.getElementById('impresion'),
+      };
+  
+      const handlers = {
+        onInputKeyup(e) {
+          const reversed = reverseString(htmlElements.input.value);
+          console.log(reversed); //para comprobar la reversidad del texto ingresado en el textfield que tenemos en el html
+          htmlElements.impresion.innerText = reversed;
+        },
+      };
+  
+      const bindEvents = () => {
+        htmlElements.input.addEventListener('keyup', handlers.onInputKeyup);
+      };
+  
+      return {
+        init() {
+          bindEvents();
+        },
+      };
+    })(Utils);
+  
+    App.init();
+  </script>
+</body>
+</html>
