@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <main>
+  <form>
+    <label for="">Cadena: </label>
+    <input id="valorIngresado" type="text" value="" />
+    <span id="impresion"></span>
+  </form>
+  </main>
+  <script>
+    const Utils = (() => {
+      const reverseString = (str) => {
+        return str.split('').reverse().join('');
+      };
+      return {
+        reverseString,
+      };
+    })();
+  
+    const App = (({ reverseString }) => {
+      const htmlElements = {
+        input: document.getElementById('valorIngresado'),
+        impresion: document.getElementById('impresion'),
+      };
+  
+      const handlers = {
+        onInputKeyup(e) {
+          const reversed = reverseString(htmlElements.input.value);
+          console.log(reversed); //impresión sencilla en consola para confirmar la reversa de la cadena
+          htmlElements.impresion.innerText = reversed;
+        },
+      };
+  
+      const bindEvents = () => {
+        htmlElements.input.addEventListener('keyup', handlers.onInputKeyup);
+      };
+  
+      return {
+        init() {
+          bindEvents();
+        },
+      };
+    })(Utils);
+  
+    App.init();
+  </script>
+</body>
+</html>
