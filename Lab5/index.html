@@ -6,34 +6,34 @@
   <title>Document</title>
   <style>
     body {
-      background-color: grey;
-      color: black;
+      background-color: black;
+      color: white;
       display: flex;
-      justify-content: center;
     }
     main {
       width: 50vw;
       height: 100vh;
       display: flex;
-      justify-content: center;
       flex-direction: column;
-      align-items: center;
       gap: 0.5rem;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: .5rem;
     }
   </style>
 </head>
 <body>
   <main>
-  <form>
-    <input id="valorIngresado" type="text" value="" />
-    <span id="impresion"></span>
-  </form>
+    <section id="form" class="response">
+        <form>
+            <label for="">Cadena</label>
+            <input id="valorIngresado" type="text" value="" placeholder="Introduzca una cadena"/>
+            <select id="colorSelect" name="color">
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="orange">Naranja</option>
+                <option value="pink">Rosado</option>
+            </select>
+            <span id="impresion"></span>
+          </form>
+    </section>
   </main>
   <script>
     const Utils = (() => {
@@ -44,32 +44,41 @@
         reverseString,
       };
     })();
-  
+
     const App = (({ reverseString }) => {
       const htmlElements = {
         input: document.getElementById('valorIngresado'),
         impresion: document.getElementById('impresion'),
+        select: document.getElementById('colorSelect'),
       };
-  
+
       const handlers = {
-        onInputKeyup(e) {
+        updateImpresion() {
           const reversed = reverseString(htmlElements.input.value);
-          console.log(reversed); //para comprobar la reversidad del texto ingresado en el textfield que tenemos en el html
           htmlElements.impresion.innerText = reversed;
+          htmlElements.impresion.style.color = htmlElements.select.value;
+        },
+        onInputKeyup(e) {
+          handlers.updateImpresion();
+        },
+        onColorChange(e) {
+          handlers.updateImpresion();
         },
       };
-  
+
       const bindEvents = () => {
         htmlElements.input.addEventListener('keyup', handlers.onInputKeyup);
+        htmlElements.select.addEventListener('change', handlers.onColorChange);
       };
-  
+
       return {
         init() {
           bindEvents();
+          handlers.updateImpresion();
         },
       };
     })(Utils);
-  
+
     App.init();
   </script>
 </body>
