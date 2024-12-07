@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial III</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" type="module"></script>
+</head>
+<body>
+    <div id="github">
+        <button id="button-github" type="button">
+            <img id="github-logo" src="https://img.icons8.com/m_sharp/200/FFFFFF/github.png" alt="buttonpng"/>
+        </button>
+    </div>
+    <main>
+        <section id="search">
+            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg" alt="PokeAPILogo">
+            <h1>Buscador de pokemones</h1>
+            <form id="pokemon-form">
+                <label>Busca desde pokemones hasta las habilidades de los mismos.</label>
+                <div id="search-mode">
+                    <div id="search-input">
+                        <label for="pokemon-name">Buscar</label>
+                        <input type="text" name="pokemon-name" autocomplete="on"/> 
+                    </div>
+                    <div id="search-type">
+                        <label for="pokemon-search">Tipo de búsqueda</label>
+                        <select name="search-election" id="search-types">
+                            <option id="empty-option" label=" "></option>
+                            <option value="by-pokemon">Por pokémon</option>
+                            <option value="by-ability">Por habilidad</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="buttons">
+                    <button id="clear" type="button" class="hidden">Limpiar</button>
+                    <button id="submit" type="submit" class="shadow">Buscar</button>
+                </div>
+            </form>
+        </section>
+        <section id="pokemon-details"></section>
+    </main>
+</body>
+</html>

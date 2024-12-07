@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat';
+    background-color: #081926
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+main > section:nth-child(1) {
+    margin-top: 125px;
+    width: min(100%, 700px);
+    padding: 3rem 3.5rem 1rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 7px;
+}
+
+section {
+    position: relative
+  }
+
+section > img {
+    width: 350px;
+    height: 150px;
+    align-self: center;
+    position: absolute;
+    top: -100px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: xx-large;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 2rem;
+    border: 0px;
+    background-color: #E8E8E8;
+    border-radius: 4px;
+}
+
+input[type=text] {
+    font-family: 'Montserrat';
+    font-size: 95%;
+}
+
+
+form > label:nth-child(1) {
+    font-weight: lighter;
+    margin-bottom: 0.7rem;
+}
+
+form > label:nth-child(2) {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+button {
+    padding: 0.5rem 2.7rem;
+    cursor: pointer;
+    background-color: #4EAFFF;
+    color: white;
+    font-weight: bolder;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#submit {
+    margin-left: auto;
+}
+
+.action {
+    text-shadow: 1px 1px 2px black;
+}
+
+.hidden {
+    display: none;
+}
+
+#pokemon-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    width: min(100%, 700px);
+    gap: 1rem;
+}
+  
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 2.5rem 8rem 1rem 3.5rem;
+    border-radius: 7px;
+}
+  
+.pokemon-card__header {
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+    font-size: x-large;
+    font-weight: bolder;
+}
+  
+.pokemon-card__body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokemon-card_img {
+    display: flex;
+}
+
+.pokemon-card_img img {
+    margin-left: -13px;
+    width: 55px; 
+    height: 55px; 
+}
+
+#stats_title {
+    margin-bottom: 0.5rem;
+}
+
+  
+

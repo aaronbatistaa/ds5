@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Gemini Chatbot</h1>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script>
+        // Logs para confirmar que el DOM está cargado
+        console.log('%c[INIT] DOM completamente cargado', 'color: green; font-weight: bold;');
+
+        // Referencias a elementos del DOM
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Logs para verificar los elementos del DOM
+        console.log('%c[DOM] chatMessages:', 'color: blue;', chatMessages);
+        console.log('%c[DOM] userInput:', 'color: blue;', userInput);
+        console.log('%c[DOM] sendButton:', 'color: blue;', sendButton);
+
+        // Función para agregar mensajes al chat
+        function addMessage(message, isUser) {
+            console.log('%c[MESSAGE] Añadiendo mensaje:', 'color: purple;', { message, isUser });
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', isUser ? 'user-message' : 'bot-message');
+            messageElement.textContent = message;
+
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll automático al final
+            console.log('%c[MESSAGE] Mensaje añadido al chat', 'color: purple;');
+        }
+
+        // Función para manejar el envío de mensajes
+        async function handleUserInput() {
+            const userMessage = userInput.value.trim();
+            if (!userMessage) {
+                console.warn('%c[INPUT] Mensaje vacío, no se enviará', 'color: orange;');
+                return;
+            }
+
+            addMessage(userMessage, true); // Mensaje del usuario
+            userInput.value = ''; // Limpia el campo de entrada
+
+            // Simular respuesta del bot (reemplazar con la lógica de API real)
+            console.log('%c[API] Enviando mensaje al bot:', 'color: teal;', userMessage);
+            try {
+                const botMessage = await simulateBotResponse(userMessage); // Cambia esto a tu función de API
+                addMessage(botMessage, false); // Respuesta del bot
+            } catch (error) {
+                console.error('%c[ERROR] Error en la respuesta del bot:', 'color: red;', error);
+                addMessage('Error: no se pudo obtener respuesta del bot.', false);
+            }
+        }
+
+        // Simulación de una respuesta del bot (reemplaza esta función con tu lógica de API)
+        function simulateBotResponse(userMessage) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(`Respuesta simulada para: "${userMessage}"`);
+                }, 1000);
+            });
+        }
+
+        // Eventos de interacción
+        sendButton.addEventListener('click', () => {
+            console.log('%c[CLICK] Botón de enviar clickeado', 'color: blue;');
+            handleUserInput();
+        });
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                console.log('%c[KEYPRESS] Tecla Enter presionada', 'color: blue;');
+                handleUserInput();
+            }
+        });
+    </script>
+</body>
+</html>

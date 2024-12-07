@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Transacciones</title>
+
+  <!-- Hojas de estilos -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/utilities.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/transacciones.css">
+
+  <!-- Scripts -->
+  <script src="js/transactions.js" type="module" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">bucoahorro</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html" class="active">Resumen</a></li>
+        <li><a href="transacciones.html">Transacciones</a></li>
+      </ul>
+    </nav>
+    <button class="cta-button" id="new-transaction-button">Nuevo Registro</button>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <section class="transactions">
+      <h3>Últimas Transacciones</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Descripción</th>
+            <th>Método</th>
+            <th>Fecha</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+        <tbody id="transactions-body">
+          <!-- Transacciones generadas dinámicamente -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+body {                                          /*donde esta todo el contenido*/
+    font-family: Arial, Helvetica, sans-serif;  /*familia de fuentes utilizadas*/
+    background-color: #E7E6E1;                /*color de fondo*/
+}
+
+.contenedor {                            /*caja encima del body*/
+    max-width: 800px;                    /*anchura máxima*/
+    margin: 30px auto;                   /*margen de distancia del contenedor*/
+    padding: 20px;                       /*distancia interna del contenedor con el contenido*/   
+    background-color: #D4D9D3;         /*color de fondo*/
+    border-radius: 8px;                  /*bordes redondeados*/
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);   /*sombra de la caja*/
+}
+
+h1 {                                     /*para el elemento h1*/
+    text-align: center;                  /*alinea el texto en el centro*/
+    color: #333;                       /*color del texto*/
+}
+
+.botones {                               /*para el div con clase botones*/
+    text-align: center;                  /*alinea los botones de accion en el centro*/
+    margin-bottom: 20px;                 /*distancia de los botones de accion con los generados*/
+}
+
+.botones button {                        /*para los elementos button para en la clase botones*/
+    background-color: #6D7F89;         /*color de fondo*/
+    border: none;                        /*quitar el borde*/
+    color: #ffffff;                    /*color del texto*/
+    padding: 10px 20px;                  /*altura y anchura de los botones*/
+    margin: 5px;                         /*margen de distancia entre botones*/
+    border-radius: 4px;                  /*bordes redondeados*/
+    cursor: pointer;                     /*convertir cursor a apuntador*/
+}
+
+.botones button:hover {                  /*los button de la clase botones en estado hover*/
+    background-color: #60676D;         /*color al pasar el cursor encima de los botones de acciones*/
+}
+
+.lista-numeros {                         /*para todos los div de la clase lista-numeros*/
+    display: flex;                       /*convierte en contenedor flexbox*/
+    flex-wrap: wrap;                     /*permite que los elementos se ajusten y pasen a la siguiente línea si no caben en una sola fila*/
+    justify-content: flex-start;         /*dónde inician los números al generarse, en este caso a la izquierda*/
+}
+
+.number-item {                           /*para cada div con el numero generado*/
+    background-color: #9e978e;         /*color del boton*/
+    color: #ffffff;                    /*color de fuente de los botones*/
+    font-size: 20px;                     /*tamaño de fuente de los botones*/
+    width: 60px;                         /*anchura de los botones*/
+    height: 60px;                        /*altura de los botones*/
+    margin: 5px;                         /*gap de distancia entre botones*/
+    display: flex;                       /*convierte contenedor flexbox*/
+    justify-content: center;             /*alinea los numeros horizontalmente en el centro*/
+    align-items: center;                 /*alinea los numeros verticalmente en el centro*/
+    border-radius: 4px;                  /*bordes redondeados*/
+}

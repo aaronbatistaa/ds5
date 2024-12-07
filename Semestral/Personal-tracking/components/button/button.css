@@ -1,0 +1,81 @@
+button {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  button.primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  button.primary:hover {
+    background-color: var(--primary-color);
+  }
+  
+  button.primary:active {
+    transform: scale(0.98);
+  }
+  
+  button.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  button.secondary:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  button.secondary:active {
+    transform: scale(0.98);
+  }
+  
+  button.text {
+    background: transparent;
+    color: var(--primary-color);
+    padding: 0;
+    font-weight: var(--font-weight-regular);
+  }
+  
+  button.text:hover {
+    text-decoration: underline;
+  }
+  
+  button:disabled {
+    background-color: rgba(29, 29, 31, 0.1);
+    color: rgba(29, 29, 31, 0.6);
+    cursor: not-allowed;
+    box-shadow: none;
+  }  
+  /* Tarjetas */
+  .card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .card h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .card p {
+    margin-bottom: 0;
+  }
+  
+  /* Barra de Navegación */
+  .navbar {
+    background-color: white;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-small);
+  }
+  
+  .navbar h1 {
+    font-size: calc(var(--font-size-base) * 1.25); /* 20px */
+  }

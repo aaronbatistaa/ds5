@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  
+  <!-- Hojas de estilos globales -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/utilities.css">
+  
+  <!-- Hojas de estilos específicas -->
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Script principal -->
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">bucoahorro</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html" class="active">Resumen</a></li>
+        <li><a href="transacciones.html">Transacciones</a></li>
+      </ul>
+    </nav>
+    <button class="cta-button" id="new-transaction-button">Nuevo Registro</button>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h1>Hola, Michael</h1>
+    </section>
+
+    <section class="balances">
+      <div class="balance-card">
+        <p>Total</p>
+        <h2 id="total-balance">$0.00</h2>
+        <span class="percentage" id="total-percentage">+0.00%</span>
+      </div>
+      <div class="balance-card">
+        <p>Ingresos</p>
+        <h2 id="income-balance">$0.00</h2>
+        <span class="percentage" id="income-percentage">+0.00%</span>
+      </div>
+      <div class="balance-card">
+        <p>Gastos</p>
+        <h2 id="expenses-balance">$0.00</h2>
+        <span class="percentage" id="expenses-percentage">+0.00%</span>
+      </div>
+    </section>
+
+    <section class="analytics">
+      <div class="chart-container">
+        <h3>Gastos por Categorías</h3>
+        <canvas id="expensesChart"></canvas>
+        <ul class="chart-legend" id="chart-legend">
+          <!-- Leyenda generada dinámicamente -->
+        </ul>
+      </div>
+
+      <div class="transactions">
+        <h3>Últimas Transacciones</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Método</th>
+              <th>Fecha</th>
+              <th>Monto</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="transactions-body">
+            <!-- Transacciones generadas dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Modal para agregar nueva transacción -->
+    <div id="transaction-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="close-modal">&times;</span>
+        <h2>Agregar Nueva Transacción</h2>
+        <form id="transaction-form">
+          <label for="description">Descripción:</label>
+          <input type="text" id="description" name="description" required>
+
+          <label for="method">Método:</label>
+          <select id="method" name="method" required>
+            <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+            <option value="Yappy">Yappy</option>
+            <option value="Efectivo">Efectivo</option>
+            <!-- Agrega más métodos según necesidad -->
+          </select>
+
+          <label for="date">Fecha:</label>
+          <input type="date" id="date" name="date" required>
+
+          <label for="amount">Monto:</label>
+          <input type="number" step="0.01" id="amount" name="amount" placeholder="Monto" required>
+
+          <!-- Nueva sección para seleccionar tipo de transacción -->
+          <div class="transaction-type">
+            <label>Tipo:</label>
+            <label>
+              <input type="radio" name="type" value="income" checked> Ingreso
+            </label>
+            <label>
+              <input type="radio" name="type" value="expense"> Gasto
+            </label>
+          </div>
+
+          <!-- Nueva sección para seleccionar categoría (solo visible si es gasto) -->
+          <div class="transaction-category" id="transaction-category">
+            <label for="category">Categoría:</label>
+            <select id="category" name="category" required>
+              <option value="">Selecciona una categoría</option>
+              <option value="Alimentación">Alimentación</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Salud">Salud</option>
+              <option value="Entretenimiento">Entretenimiento</option>
+              <option value="Educación">Educación</option>
+              <option value="Otros">Otros</option>
+              <!-- Agrega más categorías según necesidad -->
+            </select>
+          </div>
+
+          <button type="submit">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+      <!-- Incluir los scripts de Botpress Webchat -->
+      <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+      <script src="https://files.bpcontent.cloud/2024/12/06/00/20241206002753-XRFNX7SH.js"></script>
+  
+      <!-- Inicializar el chatbot -->
+      <script>
+          if (window.botpressWebChat) {
+              window.botpressWebChat.init({
+                  botId: 'TU_BOT_ID', // Reemplaza con el ID de tu bot
+                  host: 'https://cdn.botpress.cloud', // Asegúrate de que el host sea correcto
+                  // Configuraciones adicionales
+                  title: 'Asistente Virtual',
+                  welcomeMessage: '¡Hola! ¿En qué puedo ayudarte hoy?',
+                  showPoweredBy: false
+              });
+          } else {
+              console.error('Botpress Webchat no está disponible.');
+          }
+      </script>
+</body>
+</html>

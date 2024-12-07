@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 8</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" type="module"></script>
+</head>
+<body>
+    <main>
+        <section id="search">
+            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg" alt="PokeAPILogo">
+            <h1>Buscador de pokemones</h1>
+            <form id="pokemon-form">
+                <label>Busca desde pokemones hasta las habilidades de los mismos.</label>
+                <label for="pokemon-name">Buscar</label>
+                <input type="text" name="pokemon-name" />
+                <div id="buttons">
+                    <button id="clear" type="button" class="hidden">Limpiar</button>
+                    <button id="submit" type="submit" class="shadow">Buscar</button>
+                </div>
+            </form>
+        </section>
+        <section id="pokemon-details"></section>
+    </main>
+</body>
+</html>

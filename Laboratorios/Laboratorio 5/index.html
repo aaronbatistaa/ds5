@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+    }
+    main {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="form" class="response">
+        <form>
+            <label for="">Cadena</label>
+            <input id="valorIngresado" type="text" value="" placeholder="Introduzca una cadena"/>
+            <select id="colorSelect" name="color">
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="orange">Naranja</option>
+                <option value="pink">Rosado</option>
+            </select>
+            <span id="impresion"></span>
+          </form>
+    </section>
+  </main>
+  <script>
+    const Utils = (() => {
+      const reverseString = (str) => {
+        return str.split('').reverse().join('');
+      };
+      return {
+        reverseString,
+      };
+    })();
+
+    const App = (({ reverseString }) => {
+      const htmlElements = {
+        input: document.getElementById('valorIngresado'),
+        impresion: document.getElementById('impresion'),
+        select: document.getElementById('colorSelect'),
+      };
+
+      const handlers = {
+        updateImpresion() {
+          const reversed = reverseString(htmlElements.input.value);
+          htmlElements.impresion.innerText = reversed;
+          htmlElements.impresion.style.color = htmlElements.select.value;
+        },
+        onInputKeyup(e) {
+          handlers.updateImpresion();
+        },
+        onColorChange(e) {
+          handlers.updateImpresion();
+        },
+      };
+
+      const bindEvents = () => {
+        htmlElements.input.addEventListener('keyup', handlers.onInputKeyup);
+        htmlElements.select.addEventListener('change', handlers.onColorChange);
+      };
+
+      return {
+        init() {
+          bindEvents();
+          handlers.updateImpresion();
+        },
+      };
+    })(Utils);
+
+    App.init();
+  </script>
+</body>
+</html>

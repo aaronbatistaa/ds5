@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio de JavaScript</title>
+</head>
+<body>
+    <h1>¿Qué es JavaScript?</h1>
+    <p>JavaScript es un lenguaje de programación que se utiliza principalmente en el desarrollo web para hacer que las páginas web sean interactivas y dinámicas. Se ejecuta en el navegador del cliente, lo que significa que el código se procesa en el navegador web del usuario, permitiendo interacciones como animaciones, validaciones de formularios, y actualizaciones de contenido sin recargar la página.</p>
+    <h2>Similitudes Con Java</h2>
+        <ul>
+            <li><b>Sintaxis similar:</b> JavaScript y Java comparten una sintaxis básica similar basada en el lenguaje de programación C. Esto incluye estructuras de control como bucles y condicionales.</li>
+            <li><b>Orientación a objetos:</b> Ambos lenguajes soportan la programación orientada a objetos, aunque de maneras diferentes. Java es puramente orientado a objetos, mientras que JavaScript es más flexible y utiliza prototipos en lugar de clases tradicionales.</li>
+            <li><b>Popularidad y uso generalizado:</b> Ambos lenguajes son ampliamente utilizados en el desarrollo de software, aunque en diferentes áreas. Java es común en aplicaciones empresariales y móviles, mientras que JavaScript es fundamental en el desarrollo web.</li>
+        </ul>
+    <h2>Diferencias con Java</h2>
+        <ul>
+            <li><b>Entorno de ejecución:</b> Java se ejecuta en una máquina virtual Java (JVM), lo que lo hace independiente de la plataforma. JavaScript se ejecuta en el navegador del cliente o en un entorno de servidor como Node.js.</li>
+            <li><b>Tipado:</b> Java es un lenguaje de tipado estático, lo que significa que las variables deben ser declaradas con un tipo específico. JavaScript es un lenguaje de tipado dinámico, lo que permite mayor flexibilidad al trabajar con variables.</li>
+            <li><b>Aplicaciones:</b> Java se utiliza en una amplia gama de aplicaciones, desde aplicaciones móviles hasta sistemas empresariales. JavaScript se utiliza principalmente en el desarrollo web para mejorar la interactividad y la experiencia del usuario.</li>
+        </ul>
+    <h3>Concatenación</h3>
+    <p id="concatenacion"></p>
+    
+    <h3>Tipos de Datos</h3>
+    <p id="tiposDatosnum"></p>
+    <p id="tiposDatosstring"></p>
+    <script>
+
+        //punto 2
+        var num1 = 10;
+        var num2 = 5;
+        console.log("Suma:", num1 + num2);           
+        console.log("Resta:", num1 - num2);          
+        console.log("Multiplicación:", num1 * num2); 
+        console.log("División:", num1 / num2); 
+        
+        //punto 3
+        let quien = "Ketchup";
+        let tv = "XHATEPASA";
+        document.getElementById("concatenacion").innerText = quien + " " + tv;
+        console.log("Concatenación:", quien + " " + tv);
+
+        //punto 4
+        const numeroParao = 420;
+        const textoTrabao = "Laboratorio2";
+        document.getElementById("tiposDatosnum").innerText = "Tipo de dato de numeroParao: " + typeof numeroParao;
+        document.getElementById("tiposDatosstring").innerText = "Tipo de dato de textoTrabao: " + typeof textoTrabao;
+        console.log("Tipo de dato de numeroParao:", typeof numeroParao);
+        console.log("Tipo de dato de textoTrabao:", typeof textoTrabao);
+
+        //punto 5
+        var object = {
+            numero: 69,
+            texto: "El candao no es pa siempre",
+            booleano: true,
+            objetoVacio: {}
+        };
+        console.log("Objeto:", object);
+
+        //punto 6
+        function sumaMultiplos(num) {
+            let suma = 0;
+            for (let i = 1; i < num; i+=1) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                    suma += i;
+                }
+            }
+            return suma;
+        }
+
+        //funcion con 21 como prueba
+        console.log("Suma de múltiplos de 3 o 5 menores que 21:", sumaMultiplos(21));
+    </script>
+</body>
+</html>
