@@ -1,5 +1,5 @@
 
-# Laboratorio 1
+# Laboratorio 1 - Crear cuenta de GitHub
 
 #### Instrucciones
 Entrar al sitio https://github.com y crear cuenta personal (Si no la tiene). Luego asociar su cuenta de correo de la UTP a la misma cuenta.
