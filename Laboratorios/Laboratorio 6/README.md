@@ -1,5 +1,5 @@
 
-# Laboratorio 5 - Flexbox
+# Laboratorio 6 - Flexbox
 
 #### Objetivos:
 
