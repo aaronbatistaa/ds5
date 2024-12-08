@@ -1,5 +1,5 @@
 
-# Laboratorio 2
+# Laboratorio 2 - Problemas básicos con JavaScript
 
 #### Objetivos:
 
